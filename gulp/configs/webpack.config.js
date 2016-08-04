@@ -9,9 +9,20 @@ module.exports = {
   module: {
     loaders: [{
       test: /\.js$/,
-      loaders: ['react-hot', 'babel-loader'],
+      loader: 'babel-loader',
       include: path.join(__dirname, '../../js'),
-      exclude: /node_modules/
+      exclude: /node_modules/,
+      query: {
+          presets: ['react', 'es2015', 'stage-0'],
+          plugins: ['react-html-attrs', 'transform-class-properties', 'transform-decorators-legacy'],
+        }
     }]
-  }
+  },
+  plugins: [
+    new webpack.ProvidePlugin({
+        $: "jquery",
+        jQuery: "jquery",
+        "window.jQuery": "jquery"
+    })
+  ]
 };
