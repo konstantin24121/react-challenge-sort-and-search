@@ -7,7 +7,7 @@ export default class UserList extends React.Component {
   }
 
   render() {
-  	const Users = this.props.users.map((user, i)=> <UserData key={user.id} {...user} />);
+  	const Users = this.props.users.map((user, i)=> <UserData key={user.id} {...user} setActiveUser = {this.props.setActiveUser}/>);
     return (
       <div>
       	<table className="user-table table table-striped">

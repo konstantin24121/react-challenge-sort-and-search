@@ -5,14 +5,19 @@ export default class UserData extends React.Component {
     super(props);
   }
 
+  setActiveUser(){
+    console.log(1)
+    this.props.setActiveUser(this.props.id);
+  }
+
   render() {
-  	let {name, age, phone, image} = this.props;
+  	let {id, name, age, phone, image} = this.props;
     return (
-      <tr>
+      <tr onClick = {this.setActiveUser}>
       	<td>{<img src={`/images/${image}.svg`} alt="" className="user-image"/>}</td>
-		<td>{name}</td>
-		<td>{age}</td>
-		<td>{phone}</td>
+    		<td>{name}</td>
+    		<td>{age}</td>
+    		<td>{phone}</td>
       </tr>
     );
   }

@@ -25,6 +25,16 @@ export default class App extends Component{
     this.serverRequest.abort();
   }
 
+  setActiveUser(id){
+    let newActiveUser = this.state.users.filter(function(arr, i){
+        return arr.id === id
+    });
+    console.log(newActiveUser)
+    // this.setState({
+    //   activeUser: newActiveUser
+    // });
+  }
+
   render() {
     return (
       <div className="container app">
@@ -35,7 +45,7 @@ export default class App extends Component{
             <ActiveUser {...this.state.activeUser}/>
           </div>
           <div className="col-xs-9">
-            <UserList users={this.state.users}/>
+            <UserList users={this.state.users} setActiveUser = {this.setActiveUser.bind(this)}/>
           </div>
         </div>
       </div>
