@@ -29,6 +29,10 @@
   border: 1px solid #ddd;
 }
 
+.user-table tr{
+  cursor: pointer;
+}
+
 .user-image{
   max-height: 60px;
   max-width: 60px;

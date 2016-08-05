@@ -5,13 +5,17 @@ export default class SearchForm extends React.Component {
     super(props);
   }
 
+  search(e){
+    this.props.search(e.target.value);
+  }
+
   render() {
     return (
       <form>
 	    <div className="row">
 	    	<div className="col-xs-12">
 	      		<div className="form-group">
-		      		<input  name="userSearch" className="form-control" placeholder="Type to start search"/>
+		      		<input  onChange={::this.search} name="userSearch" className="form-control" placeholder="Type to start search"/>
 	      		</div>
 	    	</div>
       	</div>
