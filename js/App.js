@@ -58,12 +58,18 @@ export default class App extends Component {
   }
 
   search(name){
+    if ( name === ''){
+      this.setState({
+        users: allUsers
+      });
+      return false;
+    } 
     let reg = new RegExp(name);
     let searchArray = this.state.allUsers.filter(function(user, i, arr){
       return reg.test(user.name)
     })
 
-    if( searchArray.indexOf(this.state.activeUser) ){
+    if( searchArray.indexOf(this.state.activeUser) === -1 ){
       this.setState({
         activeUser: searchArray[0]
       });
